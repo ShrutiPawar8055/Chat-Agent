@@ -29,7 +29,7 @@ LIVEKIT_API_SECRET = os.getenv("LIVEKIT_API_SECRET")
 MESSAGE_LIMIT = 20
 SARVAM_CHAT_URL = "https://api.sarvam.ai/v1/chat/completions"
 
-SYSTEM_INSTRUCTION = """You are Traiage, a calm and knowledgeable healthcare triage assistant powered by Sarvam AI.
+SYSTEM_INSTRUCTION = """You are Triage, a calm and knowledgeable healthcare triage assistant powered by Sarvam AI.
 Your role is to guide users who may be dealing with Diabetes, Anaemia, Hypertension, or Pneumonia.
 
 Tone & Style:
@@ -53,7 +53,7 @@ Scope:
 Disclaimer rule:
 - Add "Note: I am an AI assistant, not a doctor. Please consult a healthcare professional for personalised medical advice." ONLY ONCE — at the very end of your first response. Never repeat it."""
 
-REPORT_ANALYSIS_INSTRUCTION = """You are Traiage, a warm healthcare companion powered by Sarvam AI.
+REPORT_ANALYSIS_INSTRUCTION = """You are Triage, a warm healthcare companion powered by Sarvam AI.
 Analyse the medical report below and provide a clear, friendly, easy-to-understand summary.
 
 Structure your response as:
@@ -263,5 +263,5 @@ def livekit_token():
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5001))
-    logger.info(f"Starting Traiage on port {port}")
+    logger.info(f"Starting Triage on port {port}")
     app.run(host='0.0.0.0', port=port, debug=False)

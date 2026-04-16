@@ -1,4 +1,4 @@
-# Traiage - AI Healthcare Triage Assistant
+# Triage - AI Healthcare Triage Assistant
 
 A voice-enabled healthcare triage assistant specializing in Diabetes, Anaemia, Hypertension, and Pneumonia.
 
