@@ -1,0 +1,10 @@
+flask
+requests
+python-dotenv
+livekit-agents
+livekit-api
+livekit-plugins-openai
+livekit-plugins-sarvam
+livekit-plugins-silero
+pdfplumber
+gunicorn

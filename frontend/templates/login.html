@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediBot - AI Triage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --sky-blue: #0ea5e9;
+            --deep-blue: #0369a1;
+            --white: #ffffff;
+            --gray-light: #f8fafc;
+            --gray-border: #e2e8f0;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --sky-blue: #f97316; /* Orange for dark mode */
+                --deep-blue: #ea580c;
+                --white: #000000;
+                --gray-light: #111111;
+                --gray-border: #222222;
+                --text-main: #ffffff;
+                --text-muted: #94a3b8;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--gray-light); color: var(--text-main); height: 100vh; display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
+
+        .login-card { background: var(--white); padding: 40px; border-radius: 24px; border: 1px solid var(--gray-border); box-shadow: 0 10px 25px rgba(0,0,0,0.05); width: 100%; max-width: 400px; text-align: center; }
+        .logo { width: 64px; height: 64px; background: var(--sky-blue); color: white; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 28px; }
+        h1 { font-weight: 800; font-size: 24px; margin-bottom: 8px; }
+        p { color: var(--text-muted); font-size: 14px; margin-bottom: 32px; }
+
+        .input-group { margin-bottom: 20px; text-align: left; }
+        label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+        input { width: 100%; padding: 14px; background: var(--gray-light); border: 1px solid var(--gray-border); border-radius: 12px; color: var(--text-main); font-family: inherit; font-size: 15px; outline: none; transition: border-color 0.2s; }
+        input:focus { border-color: var(--sky-blue); }
+
+        button { width: 100%; padding: 16px; background: var(--sky-blue); color: white; border: none; border-radius: 12px; font-weight: 700; font-size: 16px; cursor: pointer; transition: transform 0.2s, background 0.2s; }
+        button:hover { background: var(--deep-blue); transform: translateY(-2px); }
+
+        .flash { padding: 12px; background: rgba(239, 68, 68, 0.1); color: #ef4444; border-radius: 8px; font-size: 14px; margin-bottom: 20px; border: 1px solid rgba(239, 68, 68, 0.2); }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <div class="logo"><i class="fa-solid fa-stethoscope"></i></div>
+        <h1>Welcome Back</h1>
+        <p>Log in to access your Triage Assistant</p>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <div class="flash">{{ msg }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" name="username" placeholder="admin" required autofocus>
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="••••••••" required>
+            </div>
+            <button type="submit">Log In</button>
+        </form>
+        <p style="margin-top: 24px; font-size: 12px; opacity: 0.6;">Credentials: admin / password123</p>
+    </div>
+</body>
+</html>
